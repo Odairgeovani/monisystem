@@ -88,9 +88,3 @@ Lembre‑se de testar o comportamento da system tray e permissões no sistema al
 
 ## ⚙️ Desenvolvimento e contribuições
 - Código-fonte: `monitor/` contém os módulos principais (`main.py`, `collector.py`, `db.py`, `processes.py`).
-- Se quiser que eu adicione filtros na lista de processos, preferências para intervalo ou empacotamento do app, diga o que prefere e eu implemento.
-
----
-
-## 📞 Contato / Ajuda
-Abra uma issue no repositório com detalhes do problema (logs, sistema operacional, versão do Python) e eu te ajudo a resolver.
