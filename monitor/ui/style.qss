@@ -1,0 +1,37 @@
+/* Basic application styling */
+QWidget { background-color: #1e1e2b; color: #e6e6f0; font-family: "Segoe UI", "Helvetica Neue", Arial; }
+
+/* Cards */
+QFrame.card {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #2b2b3d, stop:1 #262633);
+    border-radius: 8px;
+    padding: 12px;
+}
+QLabel.card-title { font-weight: 600; font-size: 13px; color: #cbd5ff; }
+QLabel.card-value { font-weight: 700; font-size: 20px; color: #ffffff; }
+
+/* Sidebar */
+QPushButton.sidebar-btn {
+    background: transparent;
+    color: #cbd5ff;
+    padding: 10px 12px;
+    text-align: left;
+    border: none;
+}
+QPushButton.sidebar-btn:hover { background: #313146; border-radius: 6px; }
+QPushButton.sidebar-btn:pressed { background: #2a2a3a; }
+
+/* Toolbar */
+QToolBar { background: transparent; border: none; }
+
+/* Table */
+QTableWidget { background: #22222b; gridline-color: #333; }
+QHeaderView::section { background: #2b2b3d; color: #cbd5ff; padding: 6px; }
+
+/* Tabs */
+QTabWidget::pane { border: 0; }
+QTabBar::tab { background: #2b2b3d; padding: 6px 12px; margin: 2px; }
+QTabBar::tab:selected { background: #3b3b57; }
+
+/* Tray menu (works on some platforms) */
+QMenu { background: #262633; color: #e6e6f0; }

@@ -52,10 +52,11 @@ Dica: se o `python` do sistema for Python 2 ou houver múltiplas versões, prefi
 ## 🧭 Como usar a interface
 - Ao abrir, você verá no topo **resumos** (CPU, Memória, Rede, Processos).
 - O gráfico principal mostra histórico das métricas (últimos ~10 minutos por padrão).
-- Clique em **Ver Processos** para abrir a janela com a lista de processos (ordenável, permite ver detalhes e encerrar um processo).
+- Clique em **Processos** (ou botão na barra lateral) para abrir a janela com a lista de processos (ordenável, permite ver detalhes e encerrar um processo).
+- A interface tem um layout com **barra lateral**, **cards de resumo** e **abas** para visão geral e histórico.
 - Um ícone ficará disponível na **system tray / menubar**: use-o para abrir o app ou sair.
 
-Para alterar o intervalo de amostragem, edite `SAMPLE_INTERVAL_MS` em `monitor/main.py` (valor em milissegundos).
+Para alterar o intervalo de amostragem, abra **Configurações** no app (barra lateral ou menu da tray) e ajuste o intervalo em segundos (salvo em `monitor/config.json`).
 
 ---
 
@@ -93,7 +94,3 @@ Lembre‑se de testar o comportamento da system tray e permissões no sistema al
 
 ## 📞 Contato / Ajuda
 Abra uma issue no repositório com detalhes do problema (logs, sistema operacional, versão do Python) e eu te ajudo a resolver.
-
----
-
-**Pronto para eu adicionar uma seção de empacotamento (com um script PyInstaller) ou prefere que eu implemente filtros na janela de processos primeiro?**
