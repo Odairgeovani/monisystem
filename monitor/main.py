@@ -9,6 +9,7 @@ import pyqtgraph as pg
 
 from collector import sample_metrics
 from db import DB
+from processes import ProcessesWindow
 
 BASE = Path(__file__).parent
 DB_PATH = BASE / 'monitor.db'
@@ -41,8 +42,14 @@ class MainWindow(QtWidgets.QMainWindow):
         for w in (self.cpu_label, self.mem_label, self.net_label, self.proc_label):
             w.setMinimumWidth(180)
             summary_layout.addWidget(w)
+        proc_btn = QtWidgets.QPushButton('Ver Processos')
+        proc_btn.clicked.connect(self.show_processes)
+        summary_layout.addWidget(proc_btn)
         summary_layout.addStretch()
         layout.addLayout(summary_layout)
+
+        # Prepare processes window (created on demand)
+        self.process_window = None
 
         # Plots
         self.plot_widget = pg.PlotWidget(title='Métricas')
@@ -70,8 +77,10 @@ class MainWindow(QtWidgets.QMainWindow):
         self.tray = QtWidgets.QSystemTrayIcon(QtGui.QIcon(str(ICON_PATH)), self)
         menu = QtWidgets.QMenu()
         show_action = menu.addAction('Mostrar')
+        processes_action = menu.addAction('Processos')
         quit_action = menu.addAction('Sair')
         show_action.triggered.connect(self.showNormal)
+        processes_action.triggered.connect(self.show_processes)
         quit_action.triggered.connect(QtWidgets.QApplication.quit)
         self.tray.setContextMenu(menu)
         self.tray.activated.connect(self.on_tray_activated)
@@ -83,6 +92,13 @@ class MainWindow(QtWidgets.QMainWindow):
     def on_tray_activated(self, reason):
         if reason == QtWidgets.QSystemTrayIcon.Trigger:
             self.showNormal()
+
+    def show_processes(self):
+        if self.process_window is None:
+            self.process_window = ProcessesWindow(self)
+        self.process_window.show()
+        self.process_window.raise_()
+        self.process_window.activateWindow()
 
     def update_metrics(self):
         data = sample_metrics()
